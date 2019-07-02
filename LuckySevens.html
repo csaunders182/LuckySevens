@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Lucky Sevens</title>
+    <script src="LuckySevens.js"></script>
+
+    <style>
+      .hidable {
+        visibility: hidden;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        padding: 5px 5px 5px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lucky Sevens</h1>
+    <h3>Starting Bet</h3>
+    <input
+      type="number"
+      name="startingBet"
+      id="startingBet"
+      placeholder="$0.00"
+    />
+    <button id="Play" onclick="playButtonClicked()">Play</button>
+    <hr class="hidable" />
+    <h2 class="hidable">Results</h2>
+    <Table class="hidable">
+      <tr>
+        <td>Starting Bet</td>
+        <td id="beginningAmount">$0.00</td>
+      </tr>
+      <tr>
+        <td>Total Rolls Before Going Broke</td>
+        <td id="totalRolls">0</td>
+      </tr>
+      <tr>
+        <td>
+          Highest Amount Held
+        </td>
+        <td id="highestAmount">
+          $0.00
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Roll Count At Highest Amount Won
+        </td>
+        <td id="rollCountHighest">0</td>
+      </tr>
+    </Table>
+  </body>
+</html>
