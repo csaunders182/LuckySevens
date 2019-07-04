@@ -1,6 +1,5 @@
 /*
-  This is the logic behind lucky sevens. I overengineered the program relative to the course.
-
+  This is the logic behind lucky sevens.
 */
 
 function playButtonClicked() {
@@ -20,13 +19,16 @@ function playButtonClicked() {
 //Main Game Function
 //Takes input from starting bet after its been validated
 function playGame(bettingPool) {
-  //initialize game variables
-  var minimumBet = 1.0;
-  var prize = 4.0;
-  var diceAmount = 2;
-  var diceSides = 6;
-  var winningValue = 7;
-  var startingAmount = bettingPool;
+  //Initialize game variables
+  //Game Constants
+  const minimumBet = 1.0;
+  const prize = 4.0;
+  const diceAmount = 2;
+  const diceSides = 6;
+  const winningValue = 7;
+  const startingAmount = bettingPool;
+
+  //Game Variables
   var highestAmountWon = 0;
   var rollCountForHighestAmount = 0;
   var rollCount = 0;
@@ -56,11 +58,13 @@ function playGame(bettingPool) {
     );
   } else {
     //user did not start with minimum bet amount
-    alert("Minimum bet is $1.00");
+    alert(`Minimum bet is $${minimumBet}`);
   }
 }
 
-//Returns an int of two random ints between 1 and 6 added together
+//NumberOfsides = how many sides the dice possess
+//quantity = how many dice will be rolled
+//return totals quantity of X dice with y sides
 function rollDice(numberOfSides, quantity) {
   var amountRolled = 0;
   for (let index = 0; index < quantity; index++) {
@@ -100,11 +104,11 @@ function updateUI(
   });
 }
 
+//function that wraps both number validators into one function
 function checkIfNumber(input) {
   return isIntNumber(input) || isFloatNumber(input);
 }
 
-//At this point definitely going overboard
 //returns Bool using Regular expression to determine if the value is a int
 function isIntNumber(value) {
   var regex = /^\d+$/;
