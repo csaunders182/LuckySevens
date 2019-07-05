@@ -1,18 +1,17 @@
 /*
-  This is the logic behind lucky sevens.
+  Model for lucky sevens
 */
 
 function playButtonClicked() {
-  //Capture input text
-  var startingBet = document.getElementById("startingBet").value;
+  // Parse starting bet label into float
+  var startingBet = parseFloat(document.getElementById("startingBet").value);
 
-  //check if this is a number
-  if (checkIfNumber(startingBet)) {
+  //Check if parse was successful
+  if (isNaN(startingBet)) {
+    alert("Please enter a bet x or x.xx");
+  } else {
     //start game
     playGame(startingBet);
-  } else {
-    //inform user that their entry is invalid
-    alert("Please enter a number x or x.xx");
   }
 }
 
@@ -42,7 +41,7 @@ function playGame(bettingPool) {
         rollCountForHighestAmount = rollCount;
       }
       rollCount++;
-      if (rollDice(diceSides, diceAmount) == winningValue) {
+      if (rollDice(diceSides, diceAmount) === winningValue) {
         bettingPool += prize;
       } else {
         bettingPool -= minimumBet;
@@ -101,23 +100,4 @@ function updateUI(
   document.querySelectorAll(".hidable").forEach(element => {
     element.style.visibility = "visible";
   });
-}
-
-//function that wraps both number validators into one function
-function checkIfNumber(input) {
-  return isIntNumber(input) || isFloatNumber(input);
-}
-
-//returns Bool using Regular expression to determine if the value is a int
-function isIntNumber(value) {
-  var regex = /^\d+$/;
-
-  return regex.test(value);
-}
-
-//returns Bool using Regular expression to determine if the value is a float
-function isFloatNumber(value) {
-  var regex = /^[-+]?[0-9]+\.[0-9]+$/;
-
-  return regex.test(value);
 }
