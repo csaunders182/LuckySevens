@@ -99,7 +99,6 @@ function updateUI(
 
   //reveal results section
   document.querySelectorAll(".hidable").forEach(element => {
-    console.log(element.className);
     element.style.visibility = "visible";
   });
 }
